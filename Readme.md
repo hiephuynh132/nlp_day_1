@@ -2,8 +2,8 @@
 ## Thành viên nhóm
 1. Nguyễn Thanh Bình - MSHV: 2591302
 2. Huỳnh Đình Hiệp - MSHV: 2591303
-3. Trần Minh Sang - MSHV: 2591311
-4. Lê Nguyễn Tuấn Kiệt - MSHV: 2591322
+3. Trần Minh Sang - MSHV: 2591322
+4. Lê Nguyễn Tuấn Kiệt - MSHV: 2591311
 
 ## Cách chạy
 
