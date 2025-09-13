@@ -5,6 +5,21 @@
 3. Trần Minh Sang - MSHV: 2591322
 4. Lê Nguyễn Tuấn Kiệt - MSHV: 2591311
 
+## Mục tiêu của Chatbot Quán Cafe
+
+### 1. Hỗ trợ khách hàng nhanh chóng
+- Trả lời các câu hỏi thường gặp: menu, giá, giờ mở cửa, địa chỉ, wifi.  
+- Giúp khách không cần gọi điện trực tiếp.
+
+### 2. Tiết kiệm chi phí & nhân lực
+- Giảm tải cho nhân viên khi phải trả lời lặp lại nhiều câu hỏi.
+- Hoạt động 24/7.
+
+### 3. Marketing & giữ chân khách hàng
+- Gửi thông báo khuyến mãi, combo, chương trình thành viên.  
+
+---
+
 ## Cách chạy
 
 1. Vào thư mục dự án:
