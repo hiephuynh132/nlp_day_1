@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Chatbot Quán Cà Phê</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f7f7f7; }
+    .chat-container { width: 400px; margin: 50px auto; background: #fff; border-radius: 8px; padding: 20px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); }
+    .messages { height: 300px; overflow-y: auto; border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; }
+    .message { margin: 5px 0; }
+    .user { text-align: right; color: blue; }
+    .bot { text-align: left; color: green; }
+    input { width: 80%; padding: 8px; }
+    button { padding: 8px 12px; }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <h2>Chatbot Quán Cà Phê ☕</h2>
+    <div class="messages" id="messages"></div>
+    <input type="text" id="userInput" placeholder="Nhập tin nhắn..." />
+    <button onclick="sendMessage()">Gửi</button>
+  </div>
+
+  <script>
+    async function sendMessage() {
+      const input = document.getElementById("userInput");
+      const msgBox = document.getElementById("messages");
+
+      const userMessage = input.value.trim();
+      if (!userMessage) return;
+
+      // Hiển thị tin nhắn người dùng
+      msgBox.innerHTML += `<div class="message user"><b>Bạn:</b> ${userMessage}</div>`;
+
+      // Gửi tin nhắn đến Flask server
+      const res = await fetch("/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: userMessage })
+      });
+      const data = await res.json();
+
+      // Hiển thị tin nhắn chatbot
+      msgBox.innerHTML += `<div class="message bot"><b>Bot:</b> ${data.bot_response}</div>`;
+      msgBox.scrollTop = msgBox.scrollHeight;
+
+      input.value = "";
+    }
+
+    // Thêm lắng nghe phím Enter
+    document.getElementById("userInput").addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        event.preventDefault(); // tránh xuống dòng
+        sendMessage();
+      }
+    });
+  </script>
+</body>
+</html>
